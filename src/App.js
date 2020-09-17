@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import npc from '@yatiac/name-that-color'
 
-function App() {
+const App = () => {
+
+  const [ColorState, setColorState] = useState({})
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      
+      <header>
+          <h1 className="overlay">Name That Color</h1>
       </header>
+
+      <label htmlFor="color-picker">Escoge un color: </label>
+      <input id="color-picker" type="color" onChange={event => setColorState(npc(event.target.value))} />
+      <label>{ColorState.colorName}</label>
+      <label>{ColorState.exactMatch ? 'Exacto' : 'No exacto'}</label>
+      <label>{ColorState.closestColor}</label>
     </div>
-  );
+  )
 }
+
+
+
+
 
 export default App;
