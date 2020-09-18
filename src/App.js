@@ -32,13 +32,13 @@ const App = () => {
       </header>
 
       <div className="Box">
-        <label htmlFor="color-picker"><b>Escoge un color: </b></label>
+        <label htmlFor="color-picker">Escoge un color: </label>
         <input id="color-picker" type="color" onChange={onColorChange} />
       </div>
 
       <div className="Container">
         <div className="ColorBox" style={{backgroundColor:ColorState.colorCode}}>
-          <label><b>COLOR</b></label>
+          <label>COLOR</label>
           <label>{ColorState.colorCode.toUpperCase()}</label>
           {ColorState.exactMatch ? <label>{ColorState.colorName.toUpperCase()}</label> : null}
         </div>
@@ -46,7 +46,7 @@ const App = () => {
         {ColorState.exactMatch ? null 
         : 
           <div className="ColorBox" style={{backgroundColor:ColorState.closestColor}}>
-            <label><b>COLOR MÁS CERCANO</b></label>
+            <label>COLOR MÁS CERCANO</label>
             <label>{ColorState.closestColor}</label>
             <label>{ColorState.colorName.toUpperCase()}</label>
           </div>}
